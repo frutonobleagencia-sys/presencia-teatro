@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Presencia: clases de teatro en Colegiales para jóvenes adultos con o sin experiencia.">
+  <title>Presencia | Clases de Teatro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #00E676;
+      --bg: #FFFFFF;
+      --bg-soft: #F5F5F5;
+      --text: #111111;
+      --muted: rgba(17, 17, 17, 0.68);
+      --border: rgba(0, 230, 118, 0.24);
+      --gradient-dark:
+        radial-gradient(circle at top left, rgba(79, 55, 139, 0.38), transparent 38%),
+        radial-gradient(circle at bottom right, rgba(31, 62, 130, 0.44), transparent 30%),
+        linear-gradient(135deg, #0A0A1F 0%, #15153A 44%, #081A2F 100%);
+      --shadow: 0 20px 40px rgba(17, 17, 17, 0.08);
+      --container: min(1120px, calc(100vw - 2.5rem));
+      --section-gap: clamp(4.5rem, 10vw, 8.5rem);
+      --headline: clamp(5.75rem, 15vw, 9.5rem);
+      --title: clamp(2.3rem, 6vw, 4.5rem);
+      --label: 0.86rem;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    .button {
+      font: inherit;
+      cursor: pointer;
+      border: 0;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page-shell {
+      overflow: clip;
+    }
+
+    .section {
+      position: relative;
+      padding: var(--section-gap) 0;
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: var(--label);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 2.2rem;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.4;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3.5rem;
+      padding: 0.95rem 1.35rem;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .button--primary {
+      color: var(--text);
+      background: var(--accent);
+      box-shadow: var(--shadow);
+    }
+
+    .button--dark {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(16px);
+    }
+
+    .button--dark:hover,
+    .button--dark:focus-visible {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      align-items: stretch;
+      background: var(--bg);
+    }
+
+    .hero__wrap {
+      width: var(--container);
+      margin: 0 auto;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-height: 100svh;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      padding: 1.45rem 0 0;
+    }
+
+    .nav__logo {
+      font-family: "Syne", sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .nav__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem 1.6rem;
+      justify-content: flex-end;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav__links a {
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+
+    .nav__links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 180ms ease;
+    }
+
+    .nav__links a:hover::after,
+    .nav__links a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .hero__content {
+      display: grid;
+      align-content: center;
+      gap: 1.5rem;
+      padding: 4rem 0 3rem;
+    }
+
+    .hero__headline {
+      margin: 0;
+      font-family: "Syne", sans-serif;
+      font-size: var(--headline);
+      line-height: 0.92;
+      letter-spacing: -0.08em;
+      text-transform: lowercase;
+      max-width: 9ch;
+    }
+
+    .hero__headline span {
+      color: var(--accent);
+    }
+
+    .hero__meta {
+      max-width: 32rem;
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .hero__subtitle {
+      margin: 0;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--muted);
+      letter-spacing: -0.02em;
+    }
+
+    .hero__cta-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero__note {
+      font-size: 0.92rem;
+      color: var(--muted);
+      max-width: 18rem;
+    }
+
+    .content-section {
+      background: var(--bg-soft);
+    }
+
+    .content-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .content-section__bleed {
+      margin: 0;
+      font-family: "Syne", sans-serif;
+      font-size: clamp(4.5rem, 16vw, 10rem);
+      line-height: 0.85;
+      letter-spacing: -0.08em;
+      color: var(--accent);
+      transform: translateX(clamp(-2rem, -9vw, -5.5rem));
+      white-space: nowrap;
+    }
+
+    .content-section__body {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: clamp(1.75rem, 5vw, 4.25rem);
+      align-items: start;
+    }
+
+    .content-section h2,
+    .signup-section h2 {
+      margin: 0;
+      font-family: "Syne", sans-serif;
+      font-size: var(--title);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+    }
+
+    .content-section p,
+    .experience-section p,
+    .signup-section p,
+    .footer {
+      font-size: clamp(1.02rem, 1.7vw, 1.16rem);
+      line-height: 1.7;
+      letter-spacing: -0.01em;
+    }
+
+    .content-copy {
+      margin: 0;
+      max-width: 38rem;
+      color: var(--muted);
+    }
+
+    .content-copy strong {
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .experience-section {
+      color: #FFFFFF;
+      background: var(--gradient-dark);
+      isolation: isolate;
+    }
+
+    .experience-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent 35%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .experience-grid {
+      display: grid;
+      gap: 1.5rem;
+      max-width: 44rem;
+    }
+
+    .experience-grid h2 {
+      margin: 0;
+      font-family: "Syne", sans-serif;
+      font-size: clamp(2.6rem, 7vw, 5.25rem);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      max-width: 11ch;
+    }
+
+    .experience-grid p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      max-width: 32rem;
+    }
+
+    .signup-section__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 2rem;
+      align-items: end;
+    }
+
+    .signup-section__details {
+      display: grid;
+      gap: 1rem;
+      max-width: 34rem;
+    }
+
+    .signup-section__year {
+      margin: 0;
+      font-family: "Syne", sans-serif;
+      font-size: clamp(5rem, 15vw, 11rem);
+      line-height: 0.82;
+      letter-spacing: -0.09em;
+      color: var(--accent);
+    }
+
+    .signup-section__text {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 1.2rem 0 2rem;
+      background: var(--bg);
+    }
+
+    .footer__grid {
+      width: var(--container);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .footer__grid a {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 620ms ease, transform 620ms ease;
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav__links {
+        justify-content: flex-start;
+      }
+
+      .content-section__body,
+      .signup-section__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .signup-section__grid {
+        align-items: start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --container: min(100vw - 1.5rem, 1120px);
+        --headline: clamp(4.4rem, 22vw, 7rem);
+        --title: clamp(2rem, 10vw, 3rem);
+      }
+
+      .hero__content {
+        padding: 3rem 0 2.5rem;
+      }
+
+      .hero__cta-row {
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero__note {
+        max-width: none;
+      }
+
+      .content-section__bleed {
+        transform: translateX(-1rem);
+      }
+
+      .footer__grid {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .button,
+      .reveal {
+        transition: none;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero__wrap">
+        <nav class="nav reveal" aria-label="Principal">
+          <a class="nav__logo" href="#top">Presencia</a>
+          <div class="nav__links">
+            <a href="#contenidos">Contenidos</a>
+            <a href="#inscripciones">Inscripciones</a>
+            <a href="#contacto">Contacto</a>
+          </div>
+        </nav>
+
+        <div class="hero__content container">
+          <div class="eyebrow reveal">Buenos Aires Teatro</div>
+          <h1 class="hero__headline reveal" id="top">Clases de <span>teatro</span></h1>
+          <div class="hero__meta reveal">
+            <p class="hero__subtitle">Martes 19 Hs. · Zona Colegiales</p>
+            <div class="hero__cta-row">
+              <a class="button button--primary" href="#inscripciones">Inscribite 2026</a>
+              <span class="hero__note">Entrenamiento escénico para jóvenes adultos con o sin experiencia.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section content-section" id="contenidos">
+        <div class="container content-grid">
+          <p class="content-section__bleed reveal">Contenidos</p>
+          <div class="content-section__body">
+            <h2 class="reveal">¿Qué hacemos en clase?</h2>
+            <p class="content-copy reveal">
+              Exploramos herramientas de trabajo <strong>corporal y vocal</strong>, entrenamos desde la
+              <strong>Técnica Meisner</strong> y la <strong>Improvisación</strong>, investigamos
+              <strong>personajes</strong> y <strong>Actuación</strong>, fortalecemos la
+              <strong>Presencia escénica</strong> y la <strong>confianza escénica</strong>, y preparamos
+              una <strong>muestra final de año</strong> como cierre del proceso.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section experience-section">
+        <div class="container experience-grid">
+          <div class="eyebrow reveal">Desde 2019</div>
+          <h2 class="reveal">7 años generando experiencias</h2>
+          <p class="reveal">Para adultos jóvenes con o sin experiencia. ¡Sumate!</p>
+          <div class="reveal">
+            <a class="button button--dark" href="https://www.instagram.com/espacio.presencia/" target="_blank" rel="noreferrer">Escribinos por Instagram</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section signup-section" id="inscripciones">
+        <div class="container signup-section__grid">
+          <div class="signup-section__details">
+            <div class="eyebrow reveal">Inscripciones</div>
+            <h2 class="reveal">Inscripciones abiertas</h2>
+            <p class="signup-section__year reveal">2026</p>
+            <p class="signup-section__text reveal">Clases teatro · Martes 19 Hs. – Zona Colegiales · Jóvenes Adultos</p>
+          </div>
+          <div class="reveal" id="contacto">
+            <a class="button button--primary" href="https://www.instagram.com/espacio.presencia/" target="_blank" rel="noreferrer">Escribinos por Instagram</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__grid">
+        <span>Presencia © 2026</span>
+        <a href="https://www.instagram.com/espacio.presencia/" target="_blank" rel="noreferrer">@espacio.presencia</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const revealItems = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.18,
+      rootMargin: "0px 0px -8% 0px"
+    });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+  </script>
+</body>
+</html>
