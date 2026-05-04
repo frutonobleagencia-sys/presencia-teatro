@@ -5,27 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Presencia: clases de teatro en Colegiales para jóvenes adultos con o sin experiencia.">
   <title>Presencia | Clases de Teatro</title>
+  <link rel="icon" type="image/png" href="/img/Logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --accent: #00E676;
       --bg: #FFFFFF;
       --bg-soft: #F5F5F5;
       --text: #111111;
-      --muted: rgba(17, 17, 17, 0.68);
+      --muted: rgba(17, 17, 17, 0.7);
       --border: rgba(0, 230, 118, 0.24);
-      --gradient-dark:
-        radial-gradient(circle at top left, rgba(79, 55, 139, 0.38), transparent 38%),
-        radial-gradient(circle at bottom right, rgba(31, 62, 130, 0.44), transparent 30%),
-        linear-gradient(135deg, #0A0A1F 0%, #15153A 44%, #081A2F 100%);
-      --shadow: 0 20px 40px rgba(17, 17, 17, 0.08);
-      --container: min(1120px, calc(100vw - 2.5rem));
+      --shadow: 0 24px 60px rgba(17, 17, 17, 0.08);
+      --container: min(1140px, calc(100vw - 2.5rem));
       --section-gap: clamp(4.5rem, 10vw, 8.5rem);
-      --headline: clamp(5.75rem, 15vw, 9.5rem);
-      --title: clamp(2.3rem, 6vw, 4.5rem);
-      --label: 0.86rem;
+      --headline: clamp(5.2rem, 14vw, 9rem);
+      --title: clamp(2.2rem, 6vw, 4.6rem);
+      --subtitle: clamp(1rem, 2vw, 1.2rem);
+      --label: 0.82rem;
+      --gradient-dark:
+        radial-gradient(circle at top left, rgba(84, 58, 144, 0.36), transparent 42%),
+        radial-gradient(circle at bottom right, rgba(23, 59, 125, 0.42), transparent 35%),
+        linear-gradient(135deg, #09091b 0%, #141533 44%, #09182e 100%);
     }
 
     html {
@@ -38,7 +40,8 @@
 
     body {
       margin: 0;
-      font-family: "Inter", sans-serif;
+      font-family: "Poppins", sans-serif;
+      font-weight: 300;
       color: var(--text);
       background: var(--bg);
       cursor: none;
@@ -61,17 +64,18 @@
     }
 
     img {
-      max-width: 100%;
+      width: 100%;
+      height: auto;
       display: block;
+      object-fit: unset;
+    }
+
+    strong {
+      font-weight: 700;
     }
 
     .page-shell {
       overflow: clip;
-    }
-
-    .section {
-      position: relative;
-      padding: var(--section-gap) 0;
     }
 
     .container {
@@ -79,10 +83,15 @@
       margin: 0 auto;
     }
 
+    .section {
+      position: relative;
+      padding: var(--section-gap) 0;
+    }
+
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.65rem;
       font-size: var(--label);
       font-weight: 700;
       letter-spacing: 0.12em;
@@ -91,10 +100,24 @@
 
     .eyebrow::before {
       content: "";
-      width: 2.2rem;
+      width: 2.1rem;
       height: 1px;
       background: currentColor;
       opacity: 0.4;
+    }
+
+    h1,
+    h2,
+    .content-section__bleed,
+    .signup-section__year {
+      margin: 0;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      line-height: 0.94;
+    }
+
+    p {
+      margin: 0;
     }
 
     .button {
@@ -155,20 +178,24 @@
     }
 
     .nav__logo {
-      font-family: "Syne", sans-serif;
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .nav__logo img {
+      height: 36px;
+      width: auto;
+      display: block;
     }
 
     .nav__links {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.1rem 1.6rem;
+      gap: 1rem 1.65rem;
       justify-content: flex-end;
       font-size: 0.95rem;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .nav__links a {
@@ -197,18 +224,14 @@
     .hero__content {
       display: grid;
       align-content: center;
-      gap: 1.5rem;
+      gap: 1.6rem;
       padding: 4rem 0 3rem;
     }
 
     .hero__headline {
-      margin: 0;
-      font-family: "Syne", sans-serif;
       font-size: var(--headline);
-      line-height: 0.92;
-      letter-spacing: -0.08em;
       text-transform: lowercase;
-      max-width: 9ch;
+      max-width: 8.6ch;
     }
 
     .hero__headline span {
@@ -216,14 +239,14 @@
     }
 
     .hero__meta {
-      max-width: 32rem;
+      max-width: 33rem;
       display: grid;
       gap: 1.25rem;
     }
 
     .hero__subtitle {
-      margin: 0;
-      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-size: var(--subtitle);
+      font-weight: 700;
       color: var(--muted);
       letter-spacing: -0.02em;
     }
@@ -236,9 +259,83 @@
     }
 
     .hero__note {
-      font-size: 0.92rem;
+      max-width: 20rem;
+      font-size: 0.94rem;
       color: var(--muted);
-      max-width: 18rem;
+    }
+
+    .editorial-flow {
+      padding-bottom: 2rem;
+    }
+
+    .image-moment {
+      position: relative;
+      margin-top: clamp(2rem, 6vw, 5rem);
+      margin-bottom: 0;
+      overflow: visible;
+      z-index: 1;
+    }
+
+    .image-moment--full {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+    }
+
+    .image-moment--medium-left {
+      width: min(62vw, 760px);
+      margin-left: clamp(1.25rem, 7vw, 7rem);
+      margin-right: auto;
+    }
+
+    .image-moment--medium-right {
+      width: min(58vw, 720px);
+      margin-left: auto;
+      margin-right: clamp(1.25rem, 7vw, 7rem);
+    }
+
+    .image-moment--small-left {
+      width: min(29vw, 340px);
+      margin-left: clamp(1.25rem, 9vw, 9rem);
+      margin-right: auto;
+    }
+
+    .image-moment--small-right {
+      width: min(27vw, 320px);
+      margin-left: auto;
+      margin-right: clamp(1.25rem, 10vw, 10rem);
+    }
+
+    .image-moment--overlap {
+      margin-bottom: -60px;
+      z-index: 2;
+    }
+
+    .image-moment--near-hero {
+      margin-top: 0;
+    }
+
+    .image-moment__frame {
+      position: relative;
+      overflow: hidden;
+      background: #EDEDED;
+      box-shadow: var(--shadow);
+    }
+
+    .image-reveal {
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      z-index: 2;
+      transform-origin: right;
+      pointer-events: none;
+    }
+
+    .editorial-image {
+      opacity: 0;
+      transform: scale(1.08);
+      transform-origin: center center;
+      will-change: transform, opacity;
     }
 
     .content-section {
@@ -251,50 +348,47 @@
     }
 
     .content-section__bleed {
-      margin: 0;
-      font-family: "Syne", sans-serif;
-      font-size: clamp(4.5rem, 16vw, 10rem);
-      line-height: 0.85;
-      letter-spacing: -0.08em;
+      font-size: clamp(4.6rem, 16vw, 10rem);
       color: var(--accent);
-      transform: translateX(clamp(-2rem, -9vw, -5.5rem));
+      transform: translateX(clamp(-1rem, -6vw, -4.4rem));
       white-space: nowrap;
     }
 
     .content-section__body {
       display: grid;
       grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-      gap: clamp(1.75rem, 5vw, 4.25rem);
+      gap: clamp(1.75rem, 5vw, 4.2rem);
       align-items: start;
     }
 
     .content-section h2,
     .signup-section h2 {
-      margin: 0;
-      font-family: "Syne", sans-serif;
       font-size: var(--title);
-      line-height: 0.95;
-      letter-spacing: -0.05em;
+      max-width: 8.8ch;
     }
 
-    .content-section p,
+    .content-copy,
     .experience-section p,
-    .signup-section p,
+    .signup-section__text,
     .footer {
-      font-size: clamp(1.02rem, 1.7vw, 1.16rem);
-      line-height: 1.7;
+      font-size: clamp(1.02rem, 1.7vw, 1.14rem);
+      line-height: 1.75;
       letter-spacing: -0.01em;
     }
 
     .content-copy {
-      margin: 0;
       max-width: 38rem;
       color: var(--muted);
     }
 
     .content-copy strong {
       color: var(--text);
-      font-weight: 800;
+    }
+
+    .content-section__text-stack {
+      display: grid;
+      gap: 2rem;
+      align-items: start;
     }
 
     .experience-section {
@@ -308,58 +402,72 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent 35%),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.07), transparent 36%),
         linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
       mix-blend-mode: screen;
       pointer-events: none;
     }
 
-    .experience-grid {
+    .experience-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.78fr);
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+    }
+
+    .experience-copy {
       display: grid;
       gap: 1.5rem;
-      max-width: 44rem;
+      max-width: 42rem;
     }
 
-    .experience-grid h2 {
-      margin: 0;
-      font-family: "Syne", sans-serif;
-      font-size: clamp(2.6rem, 7vw, 5.25rem);
-      line-height: 0.94;
-      letter-spacing: -0.06em;
-      max-width: 11ch;
+    .experience-copy h2 {
+      font-size: clamp(2.8rem, 7vw, 5.3rem);
+      max-width: 10.6ch;
     }
 
-    .experience-grid p {
-      margin: 0;
+    .experience-copy p {
       color: rgba(255, 255, 255, 0.78);
-      max-width: 32rem;
+      max-width: 30rem;
+    }
+
+    .experience-image {
+      margin: 0;
+      width: 100%;
+    }
+
+    .signup-section {
+      background: var(--bg);
     }
 
     .signup-section__grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 2rem;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.78fr);
+      gap: clamp(2rem, 5vw, 4rem);
       align-items: end;
     }
 
     .signup-section__details {
       display: grid;
       gap: 1rem;
-      max-width: 34rem;
+      max-width: 35rem;
     }
 
     .signup-section__year {
-      margin: 0;
-      font-family: "Syne", sans-serif;
-      font-size: clamp(5rem, 15vw, 11rem);
-      line-height: 0.82;
-      letter-spacing: -0.09em;
+      font-size: clamp(5.4rem, 15vw, 11rem);
       color: var(--accent);
+      line-height: 0.84;
     }
 
-    .signup-section__text {
+    .signup-side {
+      display: grid;
+      gap: 1.75rem;
+      align-items: start;
+    }
+
+    .signup-image {
       margin: 0;
-      color: var(--muted);
+      width: 100%;
     }
 
     .footer {
@@ -381,7 +489,7 @@
 
     .footer__grid a {
       color: var(--text);
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .reveal {
@@ -441,7 +549,7 @@
       background: rgba(255, 255, 255, 0.14);
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 980px) {
       .nav {
         align-items: flex-start;
         flex-direction: column;
@@ -452,6 +560,7 @@
       }
 
       .content-section__body,
+      .experience-layout,
       .signup-section__grid {
         grid-template-columns: 1fr;
       }
@@ -459,17 +568,22 @@
       .signup-section__grid {
         align-items: start;
       }
+
+      .experience-copy h2,
+      .content-section h2 {
+        max-width: none;
+      }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       :root {
-        --container: min(100vw - 1.5rem, 1120px);
-        --headline: clamp(4.4rem, 22vw, 7rem);
-        --title: clamp(2rem, 10vw, 3rem);
+        --container: min(100vw - 1.5rem, 1140px);
+        --headline: clamp(4.15rem, 21vw, 6.75rem);
+        --title: clamp(2rem, 9vw, 3rem);
       }
 
       .hero__content {
-        padding: 3rem 0 2.5rem;
+        padding: 3.15rem 0 2.5rem;
       }
 
       .hero__cta-row {
@@ -485,7 +599,27 @@
       }
 
       .content-section__bleed {
-        transform: translateX(-1rem);
+        transform: translateX(-0.5rem);
+      }
+
+      .image-moment,
+      .image-moment--full,
+      .image-moment--medium-left,
+      .image-moment--medium-right,
+      .image-moment--small-left,
+      .image-moment--small-right {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .image-moment--full {
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+      }
+
+      .image-moment--overlap {
+        margin-bottom: 0;
       }
 
       .footer__grid {
@@ -528,11 +662,14 @@
 <body>
   <div id="cursor" aria-hidden="true"></div>
   <div id="cursor-dot" aria-hidden="true"></div>
+
   <div class="page-shell">
     <header class="hero">
       <div class="hero__wrap">
         <nav class="nav reveal" aria-label="Principal">
-          <a class="nav__logo" href="#top">Presencia</a>
+          <a class="nav__logo" href="#top" aria-label="Presencia">
+            <img src="/img/Logo.png" alt="Presencia">
+          </a>
           <div class="nav__links">
             <a href="#contenidos">Contenidos</a>
             <a href="#inscripciones">Inscripciones</a>
@@ -554,33 +691,78 @@
       </div>
     </header>
 
-    <main>
+    <main class="editorial-flow">
+      <figure class="image-moment image-moment--full image-moment--near-hero">
+        <div class="image-moment__frame">
+          <div class="image-reveal" aria-hidden="true"></div>
+          <img class="editorial-image" src="/img/imgi_17_622323432_18099098539718692_5269051593114783769_n.png" alt="Escena de clase de teatro en Presencia." loading="eager">
+        </div>
+      </figure>
+
       <section class="section content-section" id="contenidos">
         <div class="container content-grid">
           <p class="content-section__bleed reveal">Contenidos</p>
           <div class="content-section__body">
             <h2 class="reveal">¿Qué hacemos en clase?</h2>
-            <p class="content-copy reveal">
-              Exploramos herramientas de trabajo <strong>corporal y vocal</strong>, entrenamos desde la
-              <strong>Técnica Meisner</strong> y la <strong>Improvisación</strong>, investigamos
-              <strong>personajes</strong> y <strong>Actuación</strong>, fortalecemos la
-              <strong>Presencia escénica</strong> y la <strong>confianza escénica</strong>, y preparamos
-              una <strong>muestra final de año</strong> como cierre del proceso.
-            </p>
+            <div class="content-section__text-stack">
+              <p class="content-copy reveal">
+                Exploramos herramientas de trabajo <strong>corporal y vocal</strong>, entrenamos desde la
+                <strong>Técnica Meisner</strong> y la <strong>Improvisación</strong>, investigamos
+                <strong>personajes</strong> y <strong>Actuación</strong>, fortalecemos la
+                <strong>Presencia escénica</strong> y la <strong>confianza escénica</strong>, y preparamos
+                una <strong>muestra final de año</strong> como cierre del proceso.
+              </p>
+              <figure class="image-moment image-moment--small-right">
+                <div class="image-moment__frame">
+                  <div class="image-reveal" aria-hidden="true"></div>
+                  <img class="editorial-image" src="/img/imgi_12_504199785_18274118587274909_8270024371995709835_n.png" alt="Ensayo grupal durante una clase de Presencia." loading="lazy">
+                </div>
+              </figure>
+            </div>
           </div>
         </div>
       </section>
 
+      <figure class="image-moment image-moment--medium-left image-moment--overlap">
+        <div class="image-moment__frame">
+          <div class="image-reveal" aria-hidden="true"></div>
+          <img class="editorial-image" src="/img/imgi_11_608758150_18299807671274909_6199299392083916635_n.png" alt="Trabajo escénico de estudiantes en Presencia." loading="lazy">
+        </div>
+      </figure>
+
+      <figure class="image-moment image-moment--small-right">
+        <div class="image-moment__frame">
+          <div class="image-reveal" aria-hidden="true"></div>
+          <img class="editorial-image" src="/img/imgi_13_475915719_18260349574274909_6121815849161454803_n.png" alt="Retrato de una escena de improvisación." loading="lazy">
+        </div>
+      </figure>
+
       <section class="section experience-section">
-        <div class="container experience-grid">
-          <div class="eyebrow reveal">Desde 2019</div>
-          <h2 class="reveal">7 años generando experiencias</h2>
-          <p class="reveal">Para adultos jóvenes con o sin experiencia. ¡Sumate!</p>
-          <div class="reveal">
-            <a class="button button--dark" href="https://www.instagram.com/espacio.presencia/" target="_blank" rel="noreferrer">Escribinos por Instagram</a>
+        <div class="container experience-layout">
+          <div class="experience-copy">
+            <div class="eyebrow reveal">Desde 2019</div>
+            <h2 class="reveal">7 años generando experiencias</h2>
+            <p class="reveal">Para adultos jóvenes con o sin experiencia. ¡Sumate!</p>
+            <div class="reveal">
+              <a class="button button--dark" href="https://www.instagram.com/espacio.presencia/" target="_blank" rel="noreferrer">Escribinos por Instagram</a>
+            </div>
           </div>
+
+          <figure class="experience-image">
+            <div class="image-moment__frame">
+              <div class="image-reveal" aria-hidden="true"></div>
+              <img class="editorial-image" src="/img/imgi_18_623401569_18110243662635804_4501485750678760379_n.png" alt="Práctica escénica en un entrenamiento de Presencia." loading="lazy">
+            </div>
+          </figure>
         </div>
       </section>
+
+      <figure class="image-moment image-moment--full image-moment--overlap">
+        <div class="image-moment__frame">
+          <div class="image-reveal" aria-hidden="true"></div>
+          <img class="editorial-image" src="/img/imgi_23_650337472_18042860915726029_2772933470369533464_n.png" alt="Momento de muestra o performance teatral." loading="lazy">
+        </div>
+      </figure>
 
       <section class="section signup-section" id="inscripciones">
         <div class="container signup-section__grid">
@@ -590,11 +772,32 @@
             <p class="signup-section__year reveal">2026</p>
             <p class="signup-section__text reveal">Clases teatro · Martes 19 Hs. – Zona Colegiales · Jóvenes Adultos</p>
           </div>
-          <div class="reveal" id="contacto">
-            <a class="button button--primary" href="https://www.instagram.com/espacio.presencia/" target="_blank" rel="noreferrer">Escribinos por Instagram</a>
+
+          <div class="signup-side" id="contacto">
+            <a class="button button--primary reveal" href="https://www.instagram.com/espacio.presencia/" target="_blank" rel="noreferrer">Escribinos por Instagram</a>
+            <figure class="signup-image">
+              <div class="image-moment__frame">
+                <div class="image-reveal" aria-hidden="true"></div>
+                <img class="editorial-image" src="/img/imgi_19_622579842_18119730118584009_3124448771483147011_n.png" alt="Participante durante una escena de clase." loading="lazy">
+              </div>
+            </figure>
           </div>
         </div>
       </section>
+
+      <figure class="image-moment image-moment--medium-left">
+        <div class="image-moment__frame">
+          <div class="image-reveal" aria-hidden="true"></div>
+          <img class="editorial-image" src="/img/imgi_20_655406677_18259351612289818_4536950932001404741_n.png" alt="Grupo de teatro en proceso de ensayo." loading="lazy">
+        </div>
+      </figure>
+
+      <figure class="image-moment image-moment--full">
+        <div class="image-moment__frame">
+          <div class="image-reveal" aria-hidden="true"></div>
+          <img class="editorial-image" src="/img/imgi_37_624888786_18131902618509021_8735430710342280029_n.png" alt="Instante de presencia escénica durante una performance." loading="lazy">
+        </div>
+      </figure>
     </main>
 
     <footer class="footer">
@@ -605,6 +808,8 @@
     </footer>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script>
     const cursor = document.querySelector("#cursor");
     const cursorDot = document.querySelector("#cursor-dot");
@@ -689,7 +894,6 @@
     }
 
     const revealItems = document.querySelectorAll(".reveal");
-
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -703,6 +907,58 @@
     });
 
     revealItems.forEach((item) => revealObserver.observe(item));
+
+    if (window.gsap && window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const imageFrames = gsap.utils.toArray(".image-moment__frame");
+
+      imageFrames.forEach((frame) => {
+        const image = frame.querySelector(".editorial-image");
+        const overlay = frame.querySelector(".image-reveal");
+
+        gsap.set(image, { opacity: 0, scale: 1.08, yPercent: 0 });
+        gsap.set(overlay, { scaleX: 1, transformOrigin: "right" });
+
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: frame,
+            start: "top 85%",
+            once: true
+          }
+        })
+        .to(overlay, {
+          scaleX: 0,
+          duration: 0.9,
+          ease: "power2.inOut"
+        }, 0)
+        .to(image, {
+          opacity: 1,
+          scale: 1,
+          duration: 0.7,
+          ease: "power2.out"
+        }, 0.05);
+      });
+
+      ScrollTrigger.matchMedia({
+        "(min-width: 769px)": function () {
+          imageFrames.forEach((frame) => {
+            const image = frame.querySelector(".editorial-image");
+
+            gsap.to(image, {
+              yPercent: -12,
+              ease: "none",
+              scrollTrigger: {
+                trigger: frame,
+                scrub: true
+              }
+            });
+          });
+        }
+      });
+
+      ScrollTrigger.refresh();
+    }
   </script>
 </body>
 </html>
