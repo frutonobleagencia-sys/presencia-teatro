@@ -41,6 +41,6 @@ Los cambios que se hagan en este repositorio no se sincronizan automáticamente 
 
 ## Diseño adaptable y movimiento
 
-Incluye versiones para escritorio y celular, navegación por teclado y una presentación con menos movimiento cuando la persona tiene activada la preferencia de movimiento reducido.
+Incluye versiones para escritorio y celular, navegación por teclado y una presentación con menos movimiento cuando la persona tiene activada la preferencia de movimiento reducido. En celular, cada acto tiene una pantalla de recorrido con parada de scroll propia, y los botones permiten elegir cada idea directamente.
 
 La carpeta `img/`, si está presente, conserva los recursos de la versión anterior del repositorio. La landing actual utiliza `assets/`.
