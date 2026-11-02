@@ -22,7 +22,7 @@ Abrí `http://127.0.0.1:5173`. También podés usar `npm run dev`.
 - `styles.css`: estilos base, tipografías, texturas y piezas fotográficas.
 - `stage.css`: composición centrada, escala tipográfica y transiciones de los tres actos.
 - `app.js`: movimiento de fotos con el mouse y scroll, cambios de acto y formulario.
-- `assets/`: fotografías, logo y favicon.
+- `assets/`: fotografías, logo y favicon. El logo suministrado se conserva intacto en `presencia-logo-original.png`; `presencia-logo.svg` lo presenta completo, sin márgenes transparentes sobrantes y en negro para el fondo claro.
 - `scripts/serve.cjs`: servidor local de desarrollo sin dependencias.
 
 ## Contacto y formulario
